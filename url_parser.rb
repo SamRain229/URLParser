@@ -16,9 +16,17 @@ class UrlParser
     def port
         port_arr = @url.split("/")[2].split(":")[1]
         return port_arr
+            if port_arr = nil
+                return "nil"
+            end
+    end
       
     def path
-        path_arr = @url.split('?')[0].split("/")[3]
-            
+        path_arr = @url.split('/')[3].split("?")[0]     
+    end
+    
+    def query
+        query_arr = @url.split("#")[0].split("?")[0]
+        return query_arr
     end
 end
